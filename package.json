@@ -1,0 +1,33 @@
+{
+  "name": "fastify-prisma",
+  "version": "1.0.0",
+  "main": "app.ts",
+  "license": "MIT",
+  "author": "Matin",
+  "prisma": {
+    "seed": "ts-node prisma/seed.ts"
+  },
+  "scripts": {
+    "prebuild": "npx prisma db push -y &&npx prisma db seed",
+    "build": "tsc -p tsconfig.json",
+    "start": "node dist/app.js",
+    "dev": "tsnd --respawn --transpile-only --exit-child src/app.ts"
+  },
+  "dependencies": {
+    "@fastify/jwt": "^6.3.2",
+    "@fastify/swagger": "^8.1.0",
+    "@prisma/client": "^4.5.0",
+    "fastify": "^4.9.2",
+    "fastify-jwt": "^4.2.0",
+    "fastify-swagger": "^5.2.0",
+    "fastify-zod": "^1.2.0",
+    "zod": "^3.19.1",
+    "zod-to-json-schema": "^3.18.1"
+  },
+  "devDependencies": {
+    "@types/fastify-jwt": "^0.8.1",
+    "@types/node": "^18.11.9",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^4.8.4"
+  }
+}
